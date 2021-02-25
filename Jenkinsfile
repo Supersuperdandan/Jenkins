@@ -1,9 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                bat 'set'
+                timeout(time: 3, unit: 'MINUTES') {
+                    retry(5) {
+                        bat './flakey-deploy.sh'
+                    }
+                }
             }
         }
     }

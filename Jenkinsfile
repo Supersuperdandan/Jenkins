@@ -5,8 +5,8 @@ pipeline {
 
         stage('Deploy - Staging') {
             steps {
-                bat './deploy staging'
-                bat './run-smoke-tests'
+                bat '/deploy staging'
+                bat '/run-smoke-tests'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Deploy - Production') {
             steps {
-                bat './deploy production'
+                bat '/deploy production'
             }
         }
     }

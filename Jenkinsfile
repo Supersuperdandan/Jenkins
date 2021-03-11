@@ -1,25 +1,33 @@
 pipeline {
     agent any
     stages {
-        /* "Build" and "Test" stages omitted */
+        
 
-        stage('Deploy - Staging') {
+        stage('install') {
+            /* runtime-version */
             steps {
-                bat 'deploy staging'
-                bat 'run-smoke-tests'
+                bat 'npm install'
+                bat 'npm install aws-sdk'
             }
         }
 
-        stage('Sanity check') {
+        stage('pre_build') {
             steps {
-                input "Does the staging environment look ok?"
+                echo "Running React UI build for @(owner.fullName.escape) @(project.name.escape)."
             }
         }
 
-        stage('Deploy - Production') {
+        stage('build') {
             steps {
-                bat 'deploy production'
+                bat 'npm run build'
+            }
+        
+        stage('post_build') {
+            steps {
+                echo "@(owner.fullName.escape) @(project.name.escape) build completed on `date`"
             }
         }
+            
+        /* cache and artifacts*/
     }
 }

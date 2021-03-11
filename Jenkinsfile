@@ -21,6 +21,7 @@ pipeline {
             steps {
                 bat 'npm run build'
             }
+        }
         
         stage('post_build') {
             steps {

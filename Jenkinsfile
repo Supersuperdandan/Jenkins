@@ -28,7 +28,11 @@ pipeline {
                 echo "@(owner.fullName.escape) @(project.name.escape) build completed on `date`"
             }
         }
-            
-        /* cache and artifacts*/
+           
+        cache(maxCacheSize: 250, caches: [
+             [$class: 'ArbitraryFileCache', path: 'node_modules/**/*']
+          ])
+        
+        /* artifacts */
     }
 }

@@ -6,8 +6,8 @@ pipeline {
         stage('install') {
             /* runtime-version */
             steps {
-                bat 'npm install'
-                bat 'npm install aws-sdk'
+                sh 'npm install'
+                sh 'npm install aws-sdk'
             }
         }
 
@@ -19,7 +19,7 @@ pipeline {
 
         stage('build') {
             steps {
-                bat 'npm run build'
+                sh 'npm run build'
             }
         }
         

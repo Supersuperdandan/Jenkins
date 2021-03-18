@@ -39,10 +39,5 @@ pipeline {
         }
     }
     
-    post {
-        always {
-            artifact('@(owner.usernameLC)_@(project.code)', save_to_dir(build/**/*))
-        }
-    }
-    
+    /* artifacts */
 }

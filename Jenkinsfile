@@ -20,6 +20,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm run build'
+                /* node ./Deploy.js -- If required, replace the blank Deploy.js with a custom deploy script. */
             }
         }
         
@@ -30,9 +31,13 @@ pipeline {
         }
            
 
-        
+        stage('cache') {
+            steps {
+                cache(maxCacheSize: 250, caches: [[$class: 'ArbitraryFileCache', path: 'node_modules/**/*']])
+            }
+        }
         /* artifacts */
     }
     
-    cache(maxCacheSize: 250, caches: [[$class: 'ArbitraryFileCache', path: 'node_modules/**/*']])
+    
 }

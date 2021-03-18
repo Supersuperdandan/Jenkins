@@ -29,10 +29,10 @@ pipeline {
             }
         }
            
-        cache(maxCacheSize: 250, caches: [
-             [$class: 'ArbitraryFileCache', path: 'node_modules/**/*']
-          ])
+
         
         /* artifacts */
     }
+    
+    cache(maxCacheSize: 250, caches: [[$class: 'ArbitraryFileCache', path: 'node_modules/**/*']])
 }

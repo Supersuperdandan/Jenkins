@@ -33,12 +33,5 @@ pipeline {
            
     }
     
-    
-    post {
-        always {
-            cache(maxCacheSize: 250, caches: [[$class: 'ArbitraryFileCache', path: 'node_modules/**/*']])
-        }
-    }
-    
-    /* artifacts */
+    /* artifacts cache */
 }

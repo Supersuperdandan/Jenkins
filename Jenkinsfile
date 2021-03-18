@@ -19,9 +19,8 @@ pipeline {
 
         stage('build') {
             steps {
-                /* sh 'npm run build' */
+                sh 'npm run build'
                 /* node ./Deploy.js -- If required, replace the blank Deploy.js with a custom deploy script. */
-                echo "Hello World"
             }
         }
         

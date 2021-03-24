@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'node:12' } }
     stages {
         
 
@@ -31,6 +31,11 @@ pipeline {
         }
            
     }
-    
-    /* artifacts cache */
+   
+    post {
+        always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
+    }
 }

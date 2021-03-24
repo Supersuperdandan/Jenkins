@@ -1,10 +1,9 @@
+version: 0.1
+
 pipeline {
     agent { docker { image 'node:12' } }
     stages {
-        
-
         stage('install') {
-            /* runtime-version */
             steps {
                 sh 'npm install'
                 sh 'npm install aws-sdk'

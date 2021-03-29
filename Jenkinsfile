@@ -34,7 +34,6 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'build/**/*', fingerprint: true
-            junit 'node_modules/**/*'
         }
     }
 }

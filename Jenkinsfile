@@ -34,6 +34,12 @@ pipeline {
         }
            
     }
+    
+    post {
+        always {
+            cache caches: 'node_modules/**/*'
+        }
+    }
    
     post {
         always {

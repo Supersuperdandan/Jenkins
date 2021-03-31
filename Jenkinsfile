@@ -34,15 +34,10 @@ pipeline {
         }
            
     }
-    
-    post {
-        always {
-            cache caches: 'node_modules/**/*'
-        }
-    }
    
     post {
         always {
+            cache caches: 'node_modules/**/*'
             archiveArtifacts artifacts: 'build/**/*', fingerprint: true
         }
     }

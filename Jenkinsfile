@@ -1,7 +1,7 @@
 @()(implicit project: CbProject, owner: Owner)
-# This build file can be used if building the React UI project via Jenkins.
+/* This build file can be used if building the React UI project via Jenkins. */
 
-# This is the Jenkins buildspec version, not the project or buildspec.yml version:
+/* This is the Jenkins buildspec version, not the project or buildspec.yml version: */
 version: 0.1
 
 pipeline {

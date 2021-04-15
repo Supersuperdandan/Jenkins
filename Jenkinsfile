@@ -1,7 +1,4 @@
-/* @()(implicit project: CbProject, owner: Owner) */
-/* This build file can be used if building the React UI project via Jenkins. */
-
-/* This is the Jenkins buildspec version, not the project or buildspec.yml version: */
+@()(implicit project: CbProject, owner: Owner)
 version: 0.1
 
 pipeline {
@@ -23,7 +20,6 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm run build'
-                /* node ./Deploy.js -- If required, replace the blank Deploy.js with a custom deploy script. */
             }
         }
         
